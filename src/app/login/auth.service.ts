@@ -9,6 +9,7 @@ export class AuthService {
 
   private usuarioAutenticado: boolean = false;
 
+  
   constructor(private router: Router) { }
 
 
@@ -16,8 +17,9 @@ export class AuthService {
     
     if (usuario.login === 'teste' && usuario.senha === 'teste123') {
       this.usuarioAutenticado = true;
-      this.router.navigate(['/']);
-    } 
+      localStorage.setItem('usuarioAutenticado', 'usuarioOk');
+      this.router.navigate(['/cadastro/cadastro.component']);
+    }
     else {
       this.usuarioAutenticado = false;
       
