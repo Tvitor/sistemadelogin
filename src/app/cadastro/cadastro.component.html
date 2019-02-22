@@ -1,27 +1,36 @@
-<span>Lista de Cadastros realizados</span>
 
-<table class="table-hover">
-  <thead>
-    <tr> 
-      <th>Nome</th>
-      <th>bairro</th>
-      <th>cidade</th>
-      <th>estado</th>
+
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+        <th style="width: 30%">
+            <mfDefaultSorter by="nome">Nome</mfDefaultSorter>
+        </th>
+        <th style="width: 30%">
+            <mfDefaultSorter by="bairro">Bairro</mfDefaultSorter>
+        </th>
+        <th style="width: 30%">
+            <mfDefaultSorter by="cidade">Cidade</mfDefaultSorter>
+        </th>
+        <th style="width: 30%">
+            <mfDefaultSorter by="estado">Estado</mfDefaultSorter>
+        </th>
     </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let c of cadastros">
-    <td>{{c.nome}}</td>     
-    <td>{{c.bairro}}</td>     
-    <td>{{c.cidade}}</td> 
-    <td>{{c.estado}}</td>     
-  </tr>
-</tbody>
+  </thead>
+  <tbody>
+      <tr *ngFor="let c of cadastros">
+          <td>{{c.nome}}</td>     
+          <td>{{c.bairro}}</td>     
+          <td>{{c.cidade}}</td> 
+          <td>{{c.estado}}</td>     
+          </tr>
+  </tbody>
 </table>
+
 
 <hr/>
 <br/>
-<span>Novo cadastro</span>
+
 <form class="col-sm-6" (ngSubmit)="onSubmit()" #form="ngForm">
   <tr> 
     <th>Nome</th>
