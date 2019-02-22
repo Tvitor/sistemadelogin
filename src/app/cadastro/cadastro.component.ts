@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -15,6 +16,8 @@ export class CadastroComponent implements OnInit {
     this.checkLoggedUser();
   }
 
+
+
   onSubmit(){
     let novoCadastro = new Cadastro();
 
@@ -27,14 +30,22 @@ export class CadastroComponent implements OnInit {
   }
 
   checkLoggedUser() {
-    var loggedUser = localStorage.getItem('usuarioAutenticado');
+    let loggedUser = localStorage.getItem('usuarioAutenticado');
     if(loggedUser != 'usuarioOk'){
       this.router.navigate(['/login']);
     }
 
     this.populateArray();
   }
-
+ logout() {
+   var existeUsuario = localStorage.getItem('usuarioAutenticado');
+   if(!!existeUsuario) {
+     localStorage.removeItem('usuarioAutenticado');
+   }
+  this.router.navigate(['/login']);
+  
+ }
+ 
   populateArray(){
     let initCadastro = new Cadastro();
     initCadastro.nome = "João Roberto da Silva";
