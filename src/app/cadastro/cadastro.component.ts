@@ -45,6 +45,8 @@ export class CadastroComponent implements OnInit {
     this.cadastros = new Array<Cadastro>();
     this.cadastros.push(initCadastro);
   }
+
+  
 }
 
 export class Cadastro {
